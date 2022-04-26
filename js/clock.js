@@ -28,6 +28,7 @@ function refresh() {
     setInterval(dispClock, 60000);
 }
 
+//display clock in hr/min format
 function dispClock(){
     var now = new Date();
         //console.log(now);//console.log confirmed interval starts on the new minute
@@ -35,13 +36,13 @@ function dispClock(){
     var pm;
     //set to AM/PM format and determine if PM is true
     if(hour>12){
-        hour = hour - 12;
-        pm = true;
-    }
+        var hour = hour - 12;
+        var pm = true;
+    }else{var pm = false;}
 
     dispHrs.innerHTML = hour;
 
-    if (pm = true){
+    if (pm == true){
         dispAmPm.innerHTML = "PM"
     }else{
         dispAmPm.innerHTML = "AM"
