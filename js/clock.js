@@ -49,7 +49,11 @@ function dispClock(){
     }
 
     var min = now.getMinutes();
-    dispMin.innerHTML = min;
+    if (min < 10){
+        dispMin.innerHTML = '0' + min;
+    }else{
+        dispMin.innerHTML = min;
+    }
 }
 
 /*

@@ -10,17 +10,22 @@
         <title></title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Wallpoet&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="css/clock.css">
+        
     </head>
     <body>
         <!--[if lt IE 7]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
         <div id="clockFace">
-            <span id="hrs"></span>
-            <span id="divide"><h1>:</h1></span>
-            <span id="mins"></span>
-            <span id="amPM"></span>
+            <div class="clock num"><span id="hrs"></span></div>
+            <div class="clock divide"><span id="divide">:</span></div>
+            <div class="clock num"><span id="mins"></span></div>
+            <div class="clock amPM"><span id="amPM"></span></div>
         </div>
         
         <script src="js/clock.js" async defer></script>

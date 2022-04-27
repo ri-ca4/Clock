@@ -2,3 +2,37 @@
     background-color: aqua;
 } */
 
+#clockFace {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    height: 15vh;
+    width: 60vh;
+    border: 1px solid black;
+}
+
+.clock {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid black;
+    font-family: 'Wallpoet', cursive;
+}
+
+.num {
+    width: 40%;
+    font-size: 5em;
+
+}
+
+.divide {
+    width: 5%;
+    font-size: 5em;
+}
+
+.amPM {
+    width: 15%;
+    font-size: 2em;
+    height: 80%;
+    align-self:flex-end;
+}
