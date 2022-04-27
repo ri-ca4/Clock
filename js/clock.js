@@ -13,6 +13,7 @@ FUNCTIONS TO DISPLAY CURRENT TIME ON CLOCK FACE
 var dispMin  = document.getElementById('mins');
 var dispHrs  = document.getElementById('hrs');
 var dispAmPm = document.getElementById('amPM');
+var num      = document.getElementsByClassName('num');
 
 window.onload = dispClock;
 
@@ -20,7 +21,6 @@ window.onload = dispClock;
 var now    = new Date();
 var sec    = now.getSeconds();
 var offSet = ((60 - sec) * 1000); //the number of milliseconds before the new minute
-
 var startTime = setTimeout(refresh, offSet);
 
 //setting the interval to retrieve time every minute
@@ -31,30 +31,29 @@ function refresh() {
 //display clock in hr/min format
 function dispClock(){
     var now = new Date();
-        //console.log(now);//console.log confirmed interval starts on the new minute
     var hour = now.getHours();
-    var pm;
+    var min = now.getMinutes();
     //set to AM/PM format and determine if PM is true
     if(hour>12){
         var hour = hour - 12;
-        var pm = true;
-    }else{var pm = false;}
-
-    dispHrs.innerHTML = hour;
-
-    if (pm == true){
         dispAmPm.innerHTML = "PM"
     }else{
+        var pm = false;
         dispAmPm.innerHTML = "AM"
     }
 
-    var min = now.getMinutes();
+    dispHrs.innerHTML = hour;
     if (min < 10){
         dispMin.innerHTML = '0' + min;
     }else{
         dispMin.innerHTML = min;
     }
 }
+
+/*
+    Animations
+*/
+
 
 /*
     FUNCTIONS TO SET ALARM
