@@ -1,56 +1,62 @@
 // alert('test');
 
 /*
-    author: Riley Eyrich
-    date: 4/26/22
-    title: clock
+author: Riley Eyrich
+date: 4/26/22
+title: clock
 */
 
 /*
 FUNCTIONS TO DISPLAY CURRENT TIME ON CLOCK FACE
 */
+window.onload = dispClock;
 
+//defining variables
 var dispMin  = document.getElementById('mins');
 var dispHrs  = document.getElementById('hrs');
 var dispAmPm = document.getElementById('amPM');
 
-window.onload = dispClock;
-
-//sync interval with current time by starting interval at the start of the next minute
 var now    = new Date();
+var hrs    = now.getHours();
+var mins   = now.getMinutes();
 var sec    = now.getSeconds();
-var offSet = ((60 - sec) * 1000); //the number of milliseconds before the new minute
 
+//sync interval with current time
+var offSet = ((60 - sec) * 1000);
 var startTime = setTimeout(refresh, offSet);
 
-//setting the interval to retrieve time every minute
+//setting the interval to retrieve time
 function refresh() {
+    dispClock();
     setInterval(dispClock, 60000);
 }
 
+//display clock in hr/min format
 function dispClock(){
-    var now = new Date();
-        //console.log(now);//console.log confirmed interval starts on the new minute
-    var hour = now.getHours();
-    var pm;
-    //set to AM/PM format and determine if PM is true
-    if(hour>12){
-        hour = hour - 12;
-        pm = true;
-    }
+var now = new Date();
+//console.log(now);
+var hour = now.getHours();
+var min = now.getMinutes();
+//set to AM/PM format
+if(hour > 12){
+    var hour = hour - 12;
+    dispAmPm.innerHTML = "PM";
+}else if(hour == 0){
+    var hour = 12;
+    dispAmPm.innerHTML = "AM";
+}else{
+    dispAmPm.innerHTML = "AM";
+}
 
-    dispHrs.innerHTML = hour;
-
-    if (pm = true){
-        dispAmPm.innerHTML = "PM"
-    }else{
-        dispAmPm.innerHTML = "AM"
-    }
-
-    var min = now.getMinutes();
+dispHrs.innerHTML = hour;
+//display minutes in 2 digit format
+if (min < 10){
+    dispMin.innerHTML = '0' + min;
+}else{
     dispMin.innerHTML = min;
+}
 }
 
 /*
-    FUNCTIONS TO SET ALARM
+FUNCTIONS TO SET ALARM
 */
